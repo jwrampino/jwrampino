@@ -1,0 +1,36 @@
+name: update stress chart
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: install deps
+        run: pip install requests
+
+      - name: generate chart
+        env:
+          GH_USERNAME: jwrampino
+          GH_TOKEN: ${{ secrets.STRESS_CHART_PAT }}
+        run: python scripts/stress_chart.py
+
+      - name: commit chart
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stress.svg
+          git diff --staged --quiet || git commit -m "update stress chart"
+          git push
