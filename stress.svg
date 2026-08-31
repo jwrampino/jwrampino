@@ -7,13 +7,13 @@
     </linearGradient>
   </defs>
   <style>
-    text { font-family: 'Courier New', monospace; font-size: 11px; fill: #7fa085; }
+    text { font-family: 'Courier New', monospace; font-size: 11px; fill: #7fdca4; }
     .axis-title { font-size: 12px; }
   </style>
-  <rect x="0" y="0" width="700" height="260" fill="#141810"/>
-  <line x1="55" y1="220.0" x2="680" y2="220.0" stroke="#22281c" stroke-width="1"/><line x1="55" y1="170.0" x2="680" y2="170.0" stroke="#22281c" stroke-width="1"/><line x1="55" y1="120.0" x2="680" y2="120.0" stroke="#22281c" stroke-width="1"/><line x1="55" y1="70.0" x2="680" y2="70.0" stroke="#22281c" stroke-width="1"/><line x1="55" y1="20.0" x2="680" y2="20.0" stroke="#22281c" stroke-width="1"/>
-  <line x1="55" y1="20" x2="55" y2="220" stroke="#2e3826" stroke-width="1"/>
-  <line x1="55" y1="220" x2="680" y2="220" stroke="#2e3826" stroke-width="1"/>
+  <rect x="0" y="0" width="700" height="260" fill="#12211a"/>
+  <line x1="55" y1="220.0" x2="680" y2="220.0" stroke="#1a2e23" stroke-width="1"/><line x1="55" y1="170.0" x2="680" y2="170.0" stroke="#1a2e23" stroke-width="1"/><line x1="55" y1="120.0" x2="680" y2="120.0" stroke="#1a2e23" stroke-width="1"/><line x1="55" y1="70.0" x2="680" y2="70.0" stroke="#1a2e23" stroke-width="1"/><line x1="55" y1="20.0" x2="680" y2="20.0" stroke="#1a2e23" stroke-width="1"/>
+  <line x1="55" y1="20" x2="55" y2="220" stroke="#2c4536" stroke-width="1"/>
+  <line x1="55" y1="220" x2="680" y2="220" stroke="#2c4536" stroke-width="1"/>
   <text x="45" y="220.0" text-anchor="end" dominant-baseline="middle" class="tick">0</text><text x="45" y="170.0" text-anchor="end" dominant-baseline="middle" class="tick">2</text><text x="45" y="120.0" text-anchor="end" dominant-baseline="middle" class="tick">4</text><text x="45" y="70.0" text-anchor="end" dominant-baseline="middle" class="tick">5</text><text x="45" y="20.0" text-anchor="end" dominant-baseline="middle" class="tick">7</text>
   <text x="55.0" y="238" text-anchor="middle" class="tick">Jun 3</text><text x="181.4" y="238" text-anchor="middle" class="tick">Jun 21</text><text x="307.8" y="238" text-anchor="middle" class="tick">Jul 9</text><text x="427.2" y="238" text-anchor="middle" class="tick">Jul 26</text><text x="553.6" y="238" text-anchor="middle" class="tick">Aug 13</text><text x="680.0" y="238" text-anchor="middle" class="tick">Aug 31</text>
   <text x="18" y="120.0" text-anchor="middle" transform="rotate(-90 18 120.0)" class="axis-title">stress (# of commits)</text>
