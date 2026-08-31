@@ -13,6 +13,25 @@ TOKEN = os.environ["GH_TOKEN"]
 WINDOW = 7  # rolling average window, in days
 DAYS_SHOWN = 90  # how much history to plot
 
+THEMES = {
+    "dark": {
+        "bg": "#12211a",
+        "grid": "#1a2e23",
+        "axis": "#2c4536",
+        "text": "#7fdca4",
+        "grad_start": "#eaf3de",
+        "grad_end": "#5dcaa5",
+    },
+    "light": {
+        "bg": "#a7b68b",
+        "grid": "#93ad76",
+        "axis": "#75925a",
+        "text": "#3d4a30",
+        "grad_start": "#25301e",
+        "grad_end": "#4a6636",
+    },
+}
+
 QUERY = """
 query($login: String!, $from: DateTime!, $to: DateTime!) {
   user(login: $login) {
@@ -67,7 +86,7 @@ def rolling_average(values, window):
     return out
 
 
-def render_svg(dates, avg_values, path="stress.svg"):
+def render_svg(dates, avg_values, theme, path):
     # trim to the window
     dates = dates[-DAYS_SHOWN:]
     avg_values = avg_values[-DAYS_SHOWN:]
@@ -95,7 +114,7 @@ def render_svg(dates, avg_values, path="stress.svg"):
     for t in range(ticks + 1):
         val = max_val * t / ticks
         y = y_at(val)
-        grid_lines.append(f'<line x1="{pad_left}" y1="{y:.1f}" x2="{w - pad_right}" y2="{y:.1f}" stroke="#1a2e23" stroke-width="1"/>')
+        grid_lines.append(f'<line x1="{pad_left}" y1="{y:.1f}" x2="{w - pad_right}" y2="{y:.1f}" stroke="{theme["grid"]}" stroke-width="1"/>')
         y_tick_labels.append(f'<text x="{pad_left - 10}" y="{y:.1f}" text-anchor="end" dominant-baseline="middle" class="tick">{val:.0f}</text>')
 
     # x-axis date labels, spaced
@@ -112,18 +131,18 @@ def render_svg(dates, avg_values, path="stress.svg"):
   <title>stress chart</title>
   <defs>
     <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#eaf3de"/>
-      <stop offset="100%" stop-color="#5dcaa5"/>
+      <stop offset="0%" stop-color="{theme["grad_start"]}"/>
+      <stop offset="100%" stop-color="{theme["grad_end"]}"/>
     </linearGradient>
   </defs>
   <style>
-    text {{ font-family: 'Courier New', monospace; font-size: 11px; fill: #7fdca4; }}
+    text {{ font-family: 'Courier New', monospace; font-size: 11px; fill: {theme["text"]}; }}
     .axis-title {{ font-size: 12px; }}
   </style>
-  <rect x="0" y="0" width="{w}" height="{h}" fill="#12211a"/>
+  <rect x="0" y="0" width="{w}" height="{h}" fill="{theme["bg"]}"/>
   {''.join(grid_lines)}
-  <line x1="{pad_left}" y1="{pad_top}" x2="{pad_left}" y2="{h - pad_bottom}" stroke="#2c4536" stroke-width="1"/>
-  <line x1="{pad_left}" y1="{h - pad_bottom}" x2="{w - pad_right}" y2="{h - pad_bottom}" stroke="#2c4536" stroke-width="1"/>
+  <line x1="{pad_left}" y1="{pad_top}" x2="{pad_left}" y2="{h - pad_bottom}" stroke="{theme["axis"]}" stroke-width="1"/>
+  <line x1="{pad_left}" y1="{h - pad_bottom}" x2="{w - pad_right}" y2="{h - pad_bottom}" stroke="{theme["axis"]}" stroke-width="1"/>
   {''.join(y_tick_labels)}
   {''.join(x_tick_labels)}
   <text x="18" y="{pad_top + plot_h / 2:.1f}" text-anchor="middle" transform="rotate(-90 18 {pad_top + plot_h / 2:.1f})" class="axis-title">stress (# of commits)</text>
@@ -137,4 +156,5 @@ def render_svg(dates, avg_values, path="stress.svg"):
 if __name__ == "__main__":
     dates, daily = fetch_contributions()
     smoothed = rolling_average(daily, WINDOW)
-    render_svg(dates, smoothed)
+    for name, theme in THEMES.items():
+        render_svg(dates, smoothed, theme, path=f"stress-{name}.svg")
