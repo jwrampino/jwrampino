@@ -1,1 +1,1 @@
-![stress chart](stress.svg)
+[![stress chart](stress.svg)](https://jwrampino.github.io)

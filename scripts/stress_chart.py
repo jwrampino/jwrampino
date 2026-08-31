@@ -112,8 +112,8 @@ def render_svg(dates, avg_values, path="stress.svg"):
   <title>stress chart</title>
   <defs>
     <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#c0dd97"/>
-      <stop offset="100%" stop-color="#173404"/>
+      <stop offset="0%" stop-color="#eaf3de"/>
+      <stop offset="100%" stop-color="#5dcaa5"/>
     </linearGradient>
   </defs>
   <style>
