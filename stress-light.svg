@@ -1,0 +1,21 @@
+<svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="rolling 7 day average of daily commit count">
+  <title>stress chart</title>
+  <defs>
+    <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#25301e"/>
+      <stop offset="100%" stop-color="#4a6636"/>
+    </linearGradient>
+  </defs>
+  <style>
+    text { font-family: 'Courier New', monospace; font-size: 11px; fill: #3d4a30; }
+    .axis-title { font-size: 12px; }
+  </style>
+  <rect x="0" y="0" width="700" height="260" fill="#a7b68b"/>
+  <line x1="55" y1="220.0" x2="680" y2="220.0" stroke="#93ad76" stroke-width="1"/><line x1="55" y1="170.0" x2="680" y2="170.0" stroke="#93ad76" stroke-width="1"/><line x1="55" y1="120.0" x2="680" y2="120.0" stroke="#93ad76" stroke-width="1"/><line x1="55" y1="70.0" x2="680" y2="70.0" stroke="#93ad76" stroke-width="1"/><line x1="55" y1="20.0" x2="680" y2="20.0" stroke="#93ad76" stroke-width="1"/>
+  <line x1="55" y1="20" x2="55" y2="220" stroke="#75925a" stroke-width="1"/>
+  <line x1="55" y1="220" x2="680" y2="220" stroke="#75925a" stroke-width="1"/>
+  <text x="45" y="220.0" text-anchor="end" dominant-baseline="middle" class="tick">0</text><text x="45" y="170.0" text-anchor="end" dominant-baseline="middle" class="tick">2</text><text x="45" y="120.0" text-anchor="end" dominant-baseline="middle" class="tick">4</text><text x="45" y="70.0" text-anchor="end" dominant-baseline="middle" class="tick">5</text><text x="45" y="20.0" text-anchor="end" dominant-baseline="middle" class="tick">7</text>
+  <text x="55.0" y="238" text-anchor="middle" class="tick">Jun 3</text><text x="181.4" y="238" text-anchor="middle" class="tick">Jun 21</text><text x="307.8" y="238" text-anchor="middle" class="tick">Jul 9</text><text x="427.2" y="238" text-anchor="middle" class="tick">Jul 26</text><text x="553.6" y="238" text-anchor="middle" class="tick">Aug 13</text><text x="680.0" y="238" text-anchor="middle" class="tick">Aug 31</text>
+  <text x="18" y="120.0" text-anchor="middle" transform="rotate(-90 18 120.0)" class="axis-title">stress (# of commits)</text>
+  <polyline points="55.0,20.0 62.0,112.0 69.0,220.0 76.1,220.0 83.1,220.0 90.1,220.0 97.1,212.0 104.2,212.0 111.2,204.0 118.2,200.0 125.2,200.0 132.2,200.0 139.3,200.0 146.3,196.0 153.3,184.0 160.3,168.0 167.4,172.0 174.4,172.0 181.4,172.0 188.4,168.0 195.4,180.0 202.5,180.0 209.5,204.0 216.5,204.0 223.5,204.0 230.6,204.0 237.6,200.0 244.6,196.0 251.6,204.0 258.7,204.0 265.7,204.0 272.7,204.0 279.7,200.0 286.7,208.0 293.8,204.0 300.8,192.0 307.8,172.0 314.8,172.0 321.9,172.0 328.9,176.0 335.9,176.0 342.9,184.0 349.9,200.0 357.0,220.0 364.0,220.0 371.0,220.0 378.0,220.0 385.1,220.0 392.1,208.0 399.1,208.0 406.1,200.0 413.1,196.0 420.2,196.0 427.2,196.0 434.2,188.0 441.2,196.0 448.3,196.0 455.3,200.0 462.3,180.0 469.3,144.0 476.3,144.0 483.4,120.0 490.4,124.0 497.4,120.0 504.4,116.0 511.5,136.0 518.5,172.0 525.5,172.0 532.5,200.0 539.6,200.0 546.6,204.0 553.6,212.0 560.6,216.0 567.6,216.0 574.7,216.0 581.7,220.0 588.7,204.0 595.7,204.0 602.8,204.0 609.8,192.0 616.8,192.0 623.8,192.0 630.8,188.0 637.9,204.0 644.9,204.0 651.9,204.0 658.9,208.0 666.0,208.0 673.0,208.0 680.0,196.0" fill="none" stroke="url(#lineGrad)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>
