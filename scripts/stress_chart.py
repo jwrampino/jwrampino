@@ -95,7 +95,7 @@ def render_svg(dates, avg_values, path="stress.svg"):
     for t in range(ticks + 1):
         val = max_val * t / ticks
         y = y_at(val)
-        grid_lines.append(f'<line x1="{pad_left}" y1="{y:.1f}" x2="{w - pad_right}" y2="{y:.1f}" stroke="#22281c" stroke-width="1"/>')
+        grid_lines.append(f'<line x1="{pad_left}" y1="{y:.1f}" x2="{w - pad_right}" y2="{y:.1f}" stroke="#1a2e23" stroke-width="1"/>')
         y_tick_labels.append(f'<text x="{pad_left - 10}" y="{y:.1f}" text-anchor="end" dominant-baseline="middle" class="tick">{val:.0f}</text>')
 
     # x-axis date labels, spaced
@@ -117,13 +117,13 @@ def render_svg(dates, avg_values, path="stress.svg"):
     </linearGradient>
   </defs>
   <style>
-    text {{ font-family: 'Courier New', monospace; font-size: 11px; fill: #7fa085; }}
+    text {{ font-family: 'Courier New', monospace; font-size: 11px; fill: #7fdca4; }}
     .axis-title {{ font-size: 12px; }}
   </style>
-  <rect x="0" y="0" width="{w}" height="{h}" fill="#141810"/>
+  <rect x="0" y="0" width="{w}" height="{h}" fill="#12211a"/>
   {''.join(grid_lines)}
-  <line x1="{pad_left}" y1="{pad_top}" x2="{pad_left}" y2="{h - pad_bottom}" stroke="#2e3826" stroke-width="1"/>
-  <line x1="{pad_left}" y1="{h - pad_bottom}" x2="{w - pad_right}" y2="{h - pad_bottom}" stroke="#2e3826" stroke-width="1"/>
+  <line x1="{pad_left}" y1="{pad_top}" x2="{pad_left}" y2="{h - pad_bottom}" stroke="#2c4536" stroke-width="1"/>
+  <line x1="{pad_left}" y1="{h - pad_bottom}" x2="{w - pad_right}" y2="{h - pad_bottom}" stroke="#2c4536" stroke-width="1"/>
   {''.join(y_tick_labels)}
   {''.join(x_tick_labels)}
   <text x="18" y="{pad_top + plot_h / 2:.1f}" text-anchor="middle" transform="rotate(-90 18 {pad_top + plot_h / 2:.1f})" class="axis-title">stress (# of commits)</text>
