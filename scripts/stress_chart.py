@@ -1,6 +1,6 @@
 """
 pulls my daily contribution counts (public + private) from github's graphql api,
-smooths them into a 7-day rolling average, and renders that as an svg.
+smooths them into a 3-day rolling average, and renders that as an svg.
 runs daily via .github/workflows/stress.yml, which commits the output back.
 """
 
@@ -10,7 +10,7 @@ import requests
 
 USERNAME = os.environ["GH_USERNAME"]
 TOKEN = os.environ["GH_TOKEN"]
-WINDOW = 7  # rolling average window, in days
+WINDOW = 3  # rolling average window, in days
 DAYS_SHOWN = 90  # how much history to plot
 
 THEMES = {
