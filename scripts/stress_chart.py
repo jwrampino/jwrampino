@@ -11,7 +11,7 @@ import requests
 USERNAME = os.environ["GH_USERNAME"]
 TOKEN = os.environ["GH_TOKEN"]
 WINDOW = 3  # rolling average window, in days
-DAYS_SHOWN = 90  # how much history to plot
+DAYS_SHOWN = 365 # how much history to plot
 
 THEMES = {
     "dark": {
